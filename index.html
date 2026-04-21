@@ -17,9 +17,9 @@
                 <h1>DIGITAL HEALTH PREDICTOR</h1>
             </div>
             <nav class="nav-links">
-                <a href="#" data-target="view-home">Home</a>
+                <a href="#" data-target="view-home" class="active-link">Home</a>
                 <a href="#" data-target="view-assessment">Assessment</a>
-                <a href="#" class="disabled">Cohort Insights</a>
+                <a href="#" data-target="view-insights">Cohort Insights</a>
             </nav>
         </header>
 
@@ -28,14 +28,29 @@
             <!-- HOME VIEW -->
             <section id="view-home" class="view active">
                 <div class="hero-center">
-                    <h2 class="main-heading">Understand your<br><span class="highlight">Digital Health</span></h2>
-                    <p class="reading-description text-center">
-                        Take our quick assessment to get personalized insights into your digital habits, productivity, and nervous system regulation.
+                    <div class="badge">
+                        <div class="dot"></div>
+                        FOR ENGINEERING STUDENTS
+                    </div>
+                    <h2 class="main-heading">Understand your<br>digital habits.<br>Improve your health.</h2>
+                    <p class="hero-description">
+                        This tool turns eight quick answers into a personalized digital health score, the signals driving it, and a short list of protocols you can actually run today.
                     </p>
-                    <button class="btn-primary mt-4 btn-large" id="btn-start-assessment">
-                        Start Assessment
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </button>
+                    <div class="action-row">
+                        <button class="btn-primary" id="btn-start-assessment">
+                            Start assessment
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                        <a href="#" class="btn-link-arrow" id="link-cohort-home">
+                            See cohort data first &rarr;
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-tags">
+                    <span class="tag">~ 90 seconds</span>
+                    <span class="tag">No sign-up</span>
+                    <span class="tag">Private — your data stays in your browser</span>
                 </div>
             </section>
 
@@ -138,8 +153,8 @@
 
             <!-- ANALYZING VIEW -->
             <section id="view-analyzing" class="view">
-                <div class="hero-center">
-                    <div class="icon-box icon-teal spin-animation mb-4" style="width: 60px; height: 60px;">
+                <div class="hero-center" style="margin: 0 auto; text-align: center; align-items: center;">
+                    <div class="icon-box icon-teal spin-animation mb-4" style="width: 60px; height: 60px; margin: 0 auto;">
                         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
                     </div>
                     <h3 class="form-title">Analyzing your profile...</h3>
@@ -149,10 +164,92 @@
                     </div>
                 </div>
             </section>
+            
+            <!-- COHORT INSIGHTS VIEW -->
+            <section id="view-insights" class="view">
+                <div class="insights-container">
+                    
+                    <div class="glass-card">
+                        <div class="chart-header">
+                            <h3 class="chart-title">Health issue distribution</h3>
+                            <p class="chart-subtitle">The most reported digital-health symptoms.</p>
+                        </div>
+                        
+                        <div class="bar-chart">
+                            <div class="y-axis-labels">
+                                <span>36</span>
+                                <span>27</span>
+                                <span>18</span>
+                                <span>9</span>
+                                <span>0</span>
+                            </div>
+                            
+                            <div class="bar-wrapper">
+                                <div class="bar" style="height: 94%;"></div>
+                                <span class="bar-label">Eye strain</span>
+                            </div>
+                            <div class="bar-wrapper">
+                                <div class="bar" style="height: 61%;"></div>
+                                <span class="bar-label">Headache</span>
+                            </div>
+                            <div class="bar-wrapper">
+                                <div class="bar" style="height: 50%;"></div>
+                                <span class="bar-label">Poor concentration</span>
+                            </div>
+                            <div class="bar-wrapper">
+                                <div class="bar" style="height: 42%;"></div>
+                                <span class="bar-label">Sleep disturbance</span>
+                            </div>
+                            <div class="bar-wrapper">
+                                <div class="bar" style="height: 30%;"></div>
+                                <span class="bar-label">Unknown</span>
+                            </div>
+                        </div>
+                        
+                        <p class="chart-footer">Eye strain leads, followed by tension headaches &mdash; both highly responsive to the 20-20-20 protocol.</p>
+                    </div>
+
+                    <div class="glass-card">
+                        <div class="chart-header">
+                            <h3 class="chart-title">Screen time distribution</h3>
+                            <p class="chart-subtitle">Daily average screen time across the cohort.</p>
+                        </div>
+                        
+                        <div class="bar-chart">
+                            <div class="y-axis-labels">
+                                <span>50</span>
+                                <span>37.5</span>
+                                <span>25</span>
+                                <span>12.5</span>
+                                <span>0</span>
+                            </div>
+                            
+                            <div class="bar-wrapper">
+                                <div class="bar" style="height: 24%;"></div>
+                                <span class="bar-label"><4 hrs</span>
+                            </div>
+                            <div class="bar-wrapper">
+                                <div class="bar" style="height: 56%;"></div>
+                                <span class="bar-label">4-6 hrs</span>
+                            </div>
+                            <div class="bar-wrapper">
+                                <div class="bar" style="height: 84%;"></div>
+                                <span class="bar-label">6-8 hrs</span>
+                            </div>
+                            <div class="bar-wrapper">
+                                <div class="bar" style="height: 36%;"></div>
+                                <span class="bar-label">>8 hrs</span>
+                            </div>
+                        </div>
+                        
+                        <p class="chart-footer">The 6-8 hour bucket is the largest &mdash; and the inflection point where strain symptoms begin to dominate.</p>
+                    </div>
+                </div>
+            </section>
 
             <!-- RESULTS VIEW -->
             <section id="view-results" class="view">
-                <section class="hero-section">
+                <div class="hero-section">
                     <div class="score-container">
                         <div class="score-gauge">
                             <svg viewBox="0 0 100 100" class="gauge-svg">
@@ -169,7 +266,7 @@
 
                     <div class="reading-container">
                         <h2 class="section-subtitle">YOUR READING</h2>
-                        <h3 class="main-heading">
+                        <h3 class="main-heading" style="margin-bottom: 0.5rem; font-size: 2.75rem;">
                             Your nervous system<br>
                             is <span class="highlight" id="regulation-status">well-regulated.</span>
                         </h3>
@@ -179,15 +276,17 @@
                         
                         <div class="action-buttons">
                             <button class="btn-primary" id="btn-rerun">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
                                 Re-run assessment
                             </button>
-                            <a href="#" class="btn-link disabled">Compare with cohort &rarr;</a>
+                            <a href="#" class="btn-link-arrow" id="link-cohort-results">
+                                Compare with cohort &rarr;
+                            </a>
                         </div>
                     </div>
-                </section>
+                </div>
 
-                <section class="cards-section">
+                <div class="cards-section" style="margin-top: 4rem;">
                     <!-- Card 1 -->
                     <div class="glass-card">
                         <div class="card-header">
@@ -238,7 +337,7 @@
                             Risk markers are quiet. Maintain consistency.
                         </p>
                     </div>
-                </section>
+                </div>
             </section>
             
         </main>

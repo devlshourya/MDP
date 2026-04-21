@@ -36,6 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (targetView) {
             targetView.classList.add('active');
         }
+        
+        // Update active nav link
+        navLinks.forEach(link => {
+            if (link.dataset.target === viewId) {
+                link.classList.add('active-link');
+            } else {
+                link.classList.remove('active-link');
+            }
+        });
     }
 
     // Nav Event Listeners
@@ -59,6 +68,22 @@ document.addEventListener('DOMContentLoaded', () => {
         navigateTo('view-assessment');
         resetForm();
     });
+
+    const linkCohortHome = document.getElementById('link-cohort-home');
+    if (linkCohortHome) {
+        linkCohortHome.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateTo('view-insights');
+        });
+    }
+
+    const linkCohortResults = document.getElementById('link-cohort-results');
+    if (linkCohortResults) {
+        linkCohortResults.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateTo('view-insights');
+        });
+    }
 
     // --- FORM LOGIC ---
     function updateFormSteps() {
