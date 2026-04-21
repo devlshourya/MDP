@@ -85,6 +85,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- SLIDER LOGIC ---
+    const ageInput = document.getElementById('age');
+    const ageDisplay = document.getElementById('age-display');
+    if (ageInput && ageDisplay) {
+        ageInput.addEventListener('input', (e) => {
+            ageDisplay.textContent = e.target.value;
+        });
+    }
+
     // --- FORM LOGIC ---
     function updateFormSteps() {
         formSteps.forEach(step => {
@@ -151,6 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
         assessmentForm.reset();
         currentStep = 1;
         updateFormSteps();
+        if (ageDisplay && ageInput) {
+            ageDisplay.textContent = ageInput.value;
+        }
     }
 
     // --- SUBMIT & ANALYZE ---

@@ -347,6 +347,58 @@ select {
     background-size: 1em;
 }
 
+/* Range Slider */
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.slider-header label {
+    margin-bottom: 0 !important;
+}
+
+.slider-value {
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+input[type="range"].slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    outline: none;
+    transition: background 0.2s;
+    padding: 0;
+    border: none;
+}
+
+input[type="range"].slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent-teal);
+    cursor: pointer;
+    border: 2px solid var(--text-main);
+    box-shadow: 0 0 10px rgba(107, 158, 158, 0.4);
+}
+
+input[type="range"].slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent-teal);
+    cursor: pointer;
+    border: 2px solid var(--text-main);
+    box-shadow: 0 0 10px rgba(107, 158, 158, 0.4);
+}
+
 .radio-group {
     display: flex;
     flex-direction: column;
@@ -377,6 +429,41 @@ select {
     margin-right: 1rem;
     accent-color: var(--accent-teal);
 }
+
+.pill-radio-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.pill-radio {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid #333;
+    border-radius: 30px;
+    cursor: pointer;
+    background: rgba(22, 22, 22, 0.8);
+    transition: all 0.2s ease;
+    color: var(--text-muted);
+}
+
+.pill-radio input[type="radio"] {
+    display: none;
+}
+
+.pill-radio:hover {
+    border-color: #555;
+    color: var(--text-main);
+}
+
+.pill-radio:has(input:checked) {
+    border-color: var(--accent-teal);
+    background: rgba(107, 158, 158, 0.08);
+    color: var(--text-main);
+}
+
 
 .form-actions {
     display: flex;
@@ -783,6 +870,10 @@ select {
     
     .nav-links {
         display: none;
+    }
+    
+    .pill-radio-group {
+        grid-template-columns: 1fr;
     }
     
     .main-heading {
