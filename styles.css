@@ -228,6 +228,42 @@ body {
     background: rgba(255,255,255,0.01);
 }
 
+/* Home Details Section */
+.home-details {
+    margin-top: 4rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.details-heading {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+}
+
+.readings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.reading-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.reading-item:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    transform: translateY(-2px);
+}
+
 /* Form Styles */
 .form-container {
     max-width: 600px;
@@ -275,19 +311,40 @@ body {
 }
 
 input[type="number"], select {
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--border-color);
+    background: rgba(22, 22, 22, 0.8);
+    border: 1px solid #333;
     color: var(--text-main);
-    padding: 0.8rem 1rem;
-    border-radius: 12px;
+    padding: 1.2rem 1.25rem;
+    border-radius: 16px;
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 1.1rem;
     outline: none;
-    transition: border-color 0.2s ease;
+    transition: all 0.2s ease;
+    width: 100%;
 }
 
 input[type="number"]:focus, select:focus {
     border-color: var(--accent-teal);
+    box-shadow: 0 0 0 2px rgba(107, 158, 158, 0.15);
+}
+
+/* Hide number spinners for premium look */
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Custom select arrow */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1.2rem center;
+    background-size: 1em;
 }
 
 .radio-group {
@@ -299,15 +356,21 @@ input[type="number"]:focus, select:focus {
 .radio-card {
     display: flex;
     align-items: center;
-    padding: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px solid #333;
+    border-radius: 16px;
     cursor: pointer;
+    background: rgba(22, 22, 22, 0.8);
     transition: all 0.2s ease;
 }
 
 .radio-card:hover {
-    border-color: var(--text-muted);
+    border-color: #555;
+}
+
+.radio-card:has(input:checked) {
+    border-color: var(--accent-teal);
+    background: rgba(107, 158, 158, 0.08);
 }
 
 .radio-card input[type="radio"] {
@@ -478,7 +541,36 @@ input[type="number"]:focus, select:focus {
     width: 100%;
     background: linear-gradient(to top, var(--accent-teal-dark), var(--accent-teal));
     border-radius: 8px 8px 0 0;
-    transition: height 1s ease-out;
+    transition: height 1s ease-out, filter 0.2s ease;
+    position: relative;
+}
+
+.bar::after {
+    content: attr(data-value);
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(30, 30, 30, 0.9);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.2s ease, top 0.2s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    border: 1px solid var(--border-color);
+}
+
+.bar:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+.bar:hover::after {
+    opacity: 1;
+    top: -40px;
 }
 
 .bar-label {
